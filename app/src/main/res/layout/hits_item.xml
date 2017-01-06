@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:algolia="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -9,6 +10,11 @@
             android:id="@+id/product_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="150dp"
+            android:maxWidth="100dp"
+            android:src="@drawable/product_placeholder"
             algolia:attribute='@{"thumbnailImage"}'/>
 
         <LinearLayout
@@ -20,12 +26,22 @@
                 android:id="@+id/product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Name"
+                android:textSize="20sp"
                 algolia:attribute='@{"name"}'/>
 
             <TextView
                 android:id="@+id/product_price"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="end"
+                android:text="88$"
+                android:textAlignment="textEnd"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 algolia:attribute='@{"salePrice"}'/>
         </LinearLayout>
     </LinearLayout>
