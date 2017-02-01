@@ -19,5 +19,4 @@ public class MainActivity extends AppCompatActivity {
         InstantSearchHelper helper = new InstantSearchHelper(this, searcher);
         helper.search(); // First empty search to display default results
     }
-
 }

@@ -12,10 +12,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:adjustViewBounds="true"
-            android:maxHeight="150dp"
             android:maxWidth="100dp"
+            android:minWidth="100dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/product_placeholder"
-            algolia:attribute='@{"thumbnailImage"}'/>
+            algolia:attribute='@{"image"}'/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,14 +30,16 @@
                 android:layout_marginTop="10dp"
                 android:text="Name"
                 android:textSize="20sp"
-                algolia:attribute='@{"name"}'/>
+                algolia:attribute='@{"name"}'
+                algolia:highlightColor="@color/colorAccent"
+                algolia:highlighted="@{true}"/>
 
             <TextView
                 android:id="@+id/product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:gravity="end"
                 android:text="88$"
                 android:textAlignment="textEnd"
