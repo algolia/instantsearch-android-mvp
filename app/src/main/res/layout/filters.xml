@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:algolia="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorFilterBackground"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+    <com.algolia.instantsearch.ui.views.filters.OneValueToggle
+        android:id="@+id/toggle_shipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Shipping"
+        algolia:attributeName="shipping"
+        algolia:autoHide="true"
+        algolia:template="{value}: {isRefined}"
+        algolia:value="Free shipping"
+        />
+
+    <com.algolia.instantsearch.ui.views.filters.TwoValuesToggle
+        android:id="@+id/toggle_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/toggle_shipping"
+        android:text="Type"
+        algolia:attributeName="type"
+        algolia:autoHide="true"
+        algolia:template="{value}"
+        algolia:valueOff="HardGood"
+        algolia:valueOn="Software"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toggle_type">
+
+        <com.algolia.instantsearch.ui.views.filters.FilterSeekBar
+            android:id="@+id/seekbar_rank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            algolia:attribute="bestSellingRank"
+            />
+
+        <TextView
+            android:id="@+id/label_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best selling rank"/>
+    </LinearLayout>
+</RelativeLayout>
