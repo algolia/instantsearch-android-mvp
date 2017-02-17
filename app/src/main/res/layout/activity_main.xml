@@ -32,6 +32,14 @@
             android:drawablePadding="5dp"
             android:drawableRight="@android:drawable/arrow_down_float"
             android:text="Filter"/>
+
+        <Button
+            android:id="@+id/btn_debug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:drawablePadding="5dp"
+            android:text="DEBUG"/>
     </LinearLayout>
 
     <com.algolia.instantsearch.ui.views.Hits

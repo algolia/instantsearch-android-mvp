@@ -3,6 +3,7 @@ package com.algolia.instantsearch.mvp;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,18 +12,27 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
+import com.algolia.instantsearch.events.ErrorEvent;
+import com.algolia.instantsearch.events.SearchEvent;
 import com.algolia.instantsearch.helpers.Searcher;
 import com.algolia.instantsearch.ui.InstantSearchHelper;
+import com.algolia.instantsearch.ui.views.filters.TwoValuesToggle;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class MainActivity extends AppCompatActivity {
     private static final String ALGOLIA_APP_ID = "latency";
     private static final String ALGOLIA_SEARCH_API_KEY = "3d9875e51fbd20c7754e65422f7ce5e1";
     private static final String ALGOLIA_INDEX_NAME = "bestbuy";
     private PopupWindow mPopupWindow;
+    private TwoValuesToggle toggleTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Searcher searcher = new Searcher(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX_NAME);
@@ -79,5 +89,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.btn_debug).setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+            }
+        });
+    }
+
+    @Subscribe
+    public void onSearch(SearchEvent event) {
+        final String text = "Search:" + event.query.toString();
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        Log.e("PLN", text);
+    }
+
+    @Subscribe
+    public void onError(ErrorEvent event) {
+        final String text = "Error:" + event.error.getMessage();
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        Log.e("PLN", text);
     }
 }
