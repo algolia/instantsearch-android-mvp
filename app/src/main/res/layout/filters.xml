@@ -34,6 +34,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/box_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toggle_type">
@@ -43,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            algolia:attribute="bestSellingRank"
+            algolia:attributeName="bestSellingRank"
             />
 
         <TextView
@@ -52,4 +53,17 @@
             android:layout_height="wrap_content"
             android:text="Best selling rank"/>
     </LinearLayout>
+
+    <com.algolia.instantsearch.ui.views.filters.NumericSelector
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/box_seekbar"
+        android:spinnerMode="dialog"
+        algolia:attributeName="salePrice"
+        algolia:labels="&lt; 10€, &lt; 100€, &lt; 1000€"
+        algolia:defaultLabel="Any price"
+        algolia:operatorName="lt"
+        algolia:values="10, 100, 1000"
+        algolia:autoHide="true"/>
+    <!--TODO: Document spinnerMode dialog required when in popupwindow-->
 </RelativeLayout>
