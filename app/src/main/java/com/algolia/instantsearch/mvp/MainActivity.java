@@ -7,10 +7,9 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
@@ -28,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String ALGOLIA_SEARCH_API_KEY = "3d9875e51fbd20c7754e65422f7ce5e1";
     private static final String ALGOLIA_INDEX_NAME = "bestbuy";
     private PopupWindow mPopupWindow;
-    private TwoValuesToggle toggleTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Searcher searcher = new Searcher(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX_NAME);
-        InstantSearchHelper helper = new InstantSearchHelper(this, searcher);
+        final InstantSearchHelper helper = new InstantSearchHelper(this, searcher);
         helper.search(); // First empty search to display default results
 
         final Button buttonFilters = (Button) findViewById(R.id.btn_filter);
@@ -59,19 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
             private void createPopup() {
                 // Create ViewGroup by inflating layout
-                View filters = ((LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE))
-                        .inflate(R.layout.filters, null);
+                View filters = ((LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.filters, null);
 
-                // Link checkbox to Searcher
-                CheckBox boxShipping = (CheckBox) filters.findViewById(R.id.checkbox_shipping);
-                searcher.addFacet("shipping");
-                boxShipping.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        searcher.updateFacetRefinement("shipping", "Free shipping", isChecked)
-                                .search();
-                    }
-                });
+                // Register all AlgoliaFacetFilters
+                helper.registerFacetFilters((ViewGroup) filters);
 
                 // Create PopupWindow with the filters
                 mPopupWindow = new PopupWindow(filters, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
