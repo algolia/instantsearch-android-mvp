@@ -55,15 +55,16 @@
     </LinearLayout>
 
     <com.algolia.instantsearch.ui.views.filters.NumericSelector
+        android:id="@+id/selector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/box_seekbar"
         android:spinnerMode="dialog"
         algolia:attributeName="salePrice"
-        algolia:labels="&lt; 10€, &lt; 100€, &lt; 1000€"
+        algolia:autoHide="true"
         algolia:defaultLabel="Any price"
         algolia:operatorName="lt"
-        algolia:values="10, 100, 1000"
-        algolia:autoHide="true"/>
+        algolia:labels="&lt; 10€, &lt; 100€, &lt; 1000€"
+        algolia:values="10, 100, 1000"/>
     <!--TODO: Document spinnerMode dialog required when in popupwindow-->
 </RelativeLayout>
