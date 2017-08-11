@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.algolia.instantsearch.helpers.Searcher;
-import com.algolia.instantsearch.ui.InstantSearchHelper;
+import com.algolia.instantsearch.helpers.InstantSearch;
 
 public class MainActivity extends AppCompatActivity {
     private static final String ALGOLIA_APP_ID = "latency";
@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Searcher searcher = new Searcher(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX_NAME);
-        final InstantSearchHelper helper = new InstantSearchHelper(this, searcher);
+        final Searcher searcher = Searcher.create(ALGOLIA_APP_ID, ALGOLIA_SEARCH_API_KEY, ALGOLIA_INDEX_NAME);
+        final InstantSearch helper = new InstantSearch(this, searcher);
         helper.search(); // First empty search to display default results
     }
 }
