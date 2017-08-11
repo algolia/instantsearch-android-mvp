@@ -14,7 +14,7 @@
         android:layout_alignParentRight="true"
         android:text="Shipping"
         algolia:attributeName="shipping"
-        algolia:autoHide="true"
+        algolia:autoHide="false"
         algolia:template="{value}: {isRefined}"
         algolia:value="Free shipping"
         />
@@ -27,7 +27,7 @@
         android:layout_below="@id/toggle_shipping"
         android:text="Type"
         algolia:attributeName="type"
-        algolia:autoHide="true"
+        algolia:autoHide="false"
         algolia:template="{value}"
         algolia:valueOff="HardGood"
         algolia:valueOn="Software"
