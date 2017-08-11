@@ -39,19 +39,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/toggle_type">
 
-        <com.algolia.instantsearch.ui.views.filters.FilterSeekBar
-            android:id="@+id/seekbar_rank"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            algolia:attributeName="bestSellingRank"
-            />
+        <!--<com.algolia.instantsearch.ui.views.filters.FilterSeekBar-->
+        <!--android:id="@+id/seekbar_rank"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--algolia:attribute="bestSellingRank"-->
+        <!--/>-->
 
-        <TextView
-            android:id="@+id/label_rank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Best selling rank"/>
+        <!--<TextView-->
+        <!--android:id="@+id/label_rank"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Best selling rank"/>-->
     </LinearLayout>
 
     <com.algolia.instantsearch.ui.views.filters.NumericSelector
