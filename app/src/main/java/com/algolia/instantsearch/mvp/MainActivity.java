@@ -74,6 +74,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void onRefine(FacetRefinementEvent event) {
+        final String text = event.operation + " " + event.attribute + "=" + event.value;
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        Log.e("PLN", text);
+    }
+
     @Subscribe
     public void onSearch(SearchEvent event) {
         final String text = "Search:" + event.query.toString();
