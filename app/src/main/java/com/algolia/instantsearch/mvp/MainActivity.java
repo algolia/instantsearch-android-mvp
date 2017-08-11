@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Subscribe
     public void onResult(ResultEvent event) throws JSONException {
-        final String text = "Hits:" + event.content.get("nbHits").toString();
+        final String text = "Hits:" + String.valueOf(event.results.nbHits);
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         Log.e("PLN", text);
     }
