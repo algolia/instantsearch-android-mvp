@@ -27,6 +27,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.1.0-beta3'
-    compile 'com.algolia:instantsearch-android:0.7.0'
+    compile 'com.algolia:instantsearch-android:1.1.4'
     testCompile 'junit:junit:4.12'
 }
