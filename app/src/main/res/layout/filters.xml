@@ -63,7 +63,7 @@
         algolia:attributeName="salePrice"
         algolia:autoHide="true"
         algolia:defaultLabel="Any price"
-        algolia:operatorName="lt"
+        algolia:operator="lt"
         algolia:labels="&lt; 10€, &lt; 100€, &lt; 1000€"
         algolia:values="10, 100, 1000"/>
     <!--TODO: Document spinnerMode dialog required when in popupwindow-->
