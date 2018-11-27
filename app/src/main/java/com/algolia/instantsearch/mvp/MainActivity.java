@@ -3,8 +3,8 @@ package com.algolia.instantsearch.mvp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.algolia.instantsearch.helpers.Searcher;
-import com.algolia.instantsearch.helpers.InstantSearch;
+import com.algolia.instantsearch.core.helpers.Searcher;
+import com.algolia.instantsearch.ui.helpers.InstantSearch;
 
 public class MainActivity extends AppCompatActivity {
     private static final String ALGOLIA_APP_ID = "latency";
