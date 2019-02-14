@@ -7,9 +7,9 @@ import com.algolia.instantsearch.core.helpers.Searcher;
 import com.algolia.instantsearch.ui.helpers.InstantSearch;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String ALGOLIA_APP_ID = "latency";
-    private static final String ALGOLIA_SEARCH_API_KEY = "3d9875e51fbd20c7754e65422f7ce5e1";
-    private static final String ALGOLIA_INDEX_NAME = "bestbuy";
+    private static final String ALGOLIA_APP_ID = "TDNMRH8LS3";
+    private static final String ALGOLIA_SEARCH_API_KEY = "f3725af1304d27dbc84168d93883a652";
+    private static final String ALGOLIA_INDEX_NAME = "test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

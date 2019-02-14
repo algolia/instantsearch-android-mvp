@@ -13,7 +13,8 @@
             android:layout_margin="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/product_placeholder"
-            algolia:attribute='@{"image"}' />
+            algolia:attribute='@{"dp_url"}'
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,18 +32,18 @@
                 algolia:highlightColor='@{@color/colorAccent}'
                 algolia:highlighted="@{true}" />
 
-            <TextView
-                android:id="@+id/product_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="end"
-                android:text="88$"
-                android:textAlignment="textEnd"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                algolia:attribute='@{"salePrice"}' />
+            <!--<TextView-->
+                <!--android:id="@+id/product_price"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:gravity="end"-->
+                <!--android:text="88$"-->
+                <!--android:textAlignment="textEnd"-->
+                <!--android:textSize="24sp"-->
+                <!--android:textStyle="bold"-->
+                <!--algolia:attribute='@{"salePrice"}' />-->
         </LinearLayout>
     </LinearLayout>
 </layout>
